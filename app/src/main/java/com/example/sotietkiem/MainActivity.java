@@ -3,6 +3,7 @@ package com.example.sotietkiem;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -25,7 +26,16 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        btnXacNhan.setOnClickListener(view -> Cong());
+//        btnXacNhan.setOnClickListener(view -> Cong());
+
+        btnXacNhan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Cong();
+
+                edSoTien.setText(String.valueOf(("")));
+            }
+        });
 
     }
 

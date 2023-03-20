@@ -32,6 +32,8 @@ public class SignInActivity extends AppCompatActivity {
 
         btDangKy = findViewById(R.id.btDangKy);
 
+
+
         btDangNhap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -46,9 +48,6 @@ public class SignInActivity extends AppCompatActivity {
                     startActivity(i);
                 }
 
-
-
-
             }
         });
 
@@ -60,4 +59,5 @@ public class SignInActivity extends AppCompatActivity {
             }
         });
     }
+
 }

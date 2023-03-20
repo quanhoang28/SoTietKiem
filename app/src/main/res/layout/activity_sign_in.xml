@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg_sea"
+    android:background="@drawable/image"
     android:gravity="center"
     android:orientation="vertical"
     android:padding="16dp"
@@ -13,13 +13,21 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/opacity"
+        android:padding="32dp"
         android:gravity="center">
+
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:src="@drawable/fashion_boy"
+            android:layout_marginBottom="40dp"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Sổ tiết kiệm"
-            android:textSize="64sp"
+            android:textSize="56sp"
             android:textStyle="bold"
             android:gravity="center"
             android:layout_marginBottom="6dp"
@@ -32,7 +40,7 @@
             android:padding="8dp"
             android:background="@drawable/white_shape"
             android:layout_margin="8dp"
-            android:textSize="32sp"
+            android:textSize="24sp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/ten"
@@ -44,16 +52,17 @@
             android:padding="8dp"
             android:background="@drawable/white_shape"
             android:layout_margin="8dp"
-            android:textSize="32sp"
+            android:textSize="24sp"
             android:drawableLeft="@drawable/baseline_password_24"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPassword"
+            android:textColor="@color/black"
             android:hint="Mật khẩu"/>
 
-        <androidx.appcompat.widget.LinearLayoutCompat
+        <LinearLayout
             android:layout_width="wrap_content"
-
+            android:orientation="vertical"
             android:layout_height="wrap_content">
             <Button
                 android:id="@+id/btDangNhap"
@@ -61,17 +70,17 @@
                 android:layout_height="wrap_content"
                 android:textSize="16sp"
                 android:text="Đăng nhập"
-                android:layout_marginRight="16sp"
-                android:textAlignment="center"  />
+                android:layout_marginRight="8dp"
+                android:textAlignment="center" />
 
             <Button
                 android:id="@+id/btDangKy"
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:text="Đăng ký"
-                android:layout_marginRight="16sp"
+                android:layout_marginRight="8dp"
                 android:textSize="16sp" />
-        </androidx.appcompat.widget.LinearLayoutCompat>
+        </LinearLayout>
 
 
 
