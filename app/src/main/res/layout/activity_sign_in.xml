@@ -36,7 +36,8 @@
 
 
         <EditText
-            android:id="@+id/edTaiKhoan"
+            android:id="@+id/edUserNameLo"
+            android:selectAllOnFocus="true"
             android:padding="8dp"
             android:background="@drawable/white_shape"
             android:layout_margin="8dp"
@@ -45,15 +46,20 @@
             android:layout_height="wrap_content"
             android:hint="@string/ten"
             android:drawableLeft="@drawable/baseline_account_circle_24"
+            android:drawablePadding="8dp"
+            android:textColorHint="@color/cardview_dark_background"
             android:textColor="@color/black"/>
 
         <EditText
-            android:id="@+id/edPassword"
+            android:id="@+id/edPaswordLo"
+            android:selectAllOnFocus="true"
             android:padding="8dp"
             android:background="@drawable/white_shape"
             android:layout_margin="8dp"
             android:textSize="24sp"
+            android:drawablePadding="8dp"
             android:drawableLeft="@drawable/baseline_password_24"
+            android:textColorHint="@color/cardview_dark_background"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPassword"

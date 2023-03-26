@@ -23,70 +23,86 @@
             android:gravity="center"
             android:text="Đăng ký"
             android:textColor="@color/cardview_dark_background"
-            android:textSize="64sp"
+            android:textSize="56sp"
             android:textStyle="bold" />
 
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:background="@drawable/white_shape"
-            android:hint="Tên người dùng"
-            android:inputType="text"
-            android:padding="8dp"
-            android:textSize="32sp" />
+<!--        <EditText-->
+<!--            android:id="@+id/edUserNameRe"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_margin="8dp"-->
+<!--            android:background="@drawable/white_shape"-->
+<!--            android:hint="Tên người dùng"-->
+<!--            android:textColor="@color/black"-->
+<!--            android:textColorHint="@color/cardview_dark_background"-->
+<!--            android:inputType="text"-->
+<!--            android:padding="8dp"-->
+<!--            android:textSize="24sp" />-->
 
         <EditText
-            android:id="@+id/edTaiKhoan"
+            android:id="@+id/edUserNameRe"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
             android:background="@drawable/white_shape"
             android:hint="Tên đăng nhập"
+            android:textColor="@color/black"
+            android:textColorHint="@color/cardview_dark_background"
             android:padding="8dp"
-            android:textSize="32sp" />
+            android:textSize="24sp" />
 
         <EditText
-            android:id="@+id/edPasword"
+            android:id="@+id/edPaswordRe"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
             android:background="@drawable/white_shape"
             android:hint="Mật khẩu"
+            android:textColor="@color/black"
+            android:textColorHint="@color/cardview_dark_background"
             android:inputType="textPassword"
             android:padding="8dp"
-            android:textSize="32sp" />
+            android:textSize="24sp" />
 
         <EditText
+            android:id="@+id/edConfirmPasswordRe"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
             android:background="@drawable/white_shape"
             android:hint="Nhập lại mật khẩu"
+            android:textColor="@color/black"
+            android:textColorHint="@color/cardview_dark_background"
             android:inputType="textPassword"
             android:padding="8dp"
-            android:textSize="32sp" />
+            android:textSize="24sp" />
 
         <EditText
+            android:id="@+id/edPhoneNumberRe"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
             android:background="@drawable/white_shape"
             android:hint="Số điện thoại"
-            android:inputType="number"
+            android:textColor="@color/black"
+            android:textColorHint="@color/cardview_dark_background"
+            android:inputType="phone"
             android:padding="8dp"
-            android:textSize="32sp" />
+            android:textSize="24sp" />
 
         <EditText
+            android:id="@+id/edGmailRe"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
             android:background="@drawable/white_shape"
             android:hint="Gmail"
+            android:textColor="@color/black"
+            android:textColorHint="@color/cardview_dark_background"
             android:inputType="textEmailAddress"
             android:padding="8dp"
-            android:textSize="32sp" />
+            android:textSize="24sp" />
 
 
 
@@ -95,8 +111,7 @@
             android:layout_width="242dp"
             android:layout_height="wrap_content"
             android:text="Đăng ký"
-
-            android:textSize="32sp" />
+            android:textSize="24sp" />
 
     </LinearLayout>
 </LinearLayout>
