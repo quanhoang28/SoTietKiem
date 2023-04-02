@@ -32,6 +32,7 @@ public class SignInActivity extends AppCompatActivity {
     TextView tvTest;
 
     ArrayList<User> lstUser;
+    public static User loginUser;
     SharedPreferences.Editor editor;
     private final Gson gson =new Gson();
     SharedPreferences sharedPreferences;
@@ -58,17 +59,7 @@ public class SignInActivity extends AppCompatActivity {
                String username = edTaiKhoan.getText().toString().trim();
                String password = edPassword.getText().toString().trim();
 
-               User dbUser = DataQuery.GetUser(SignInActivity.this,username);
-
-               if(username == dbUser.getUserName())
-               {
-                   Toast.makeText(SignInActivity.this, "Username đúng", Toast.LENGTH_SHORT).show();
-               }
-               else
-               {
-                   Toast.makeText(SignInActivity.this, "không đúng", Toast.LENGTH_SHORT).show();
-               }
-
+              checkUserLogin();
            }
        });
 
@@ -92,6 +83,15 @@ public class SignInActivity extends AppCompatActivity {
     }
 
     private void checkUserLogin() {
-
+        DataQuery query=new DataQuery();
+        loginUser=query.checkLogin(this,edTaiKhoan.getText().toString(),edPassword.getText().toString());
+        if (loginUser!=null)
+        {
+            Intent intent=new Intent(this,MainActivity.class);
+            startActivity(intent);
+        }
+        else {
+            Toast.makeText(SignInActivity.this, "Dang nhap that bai", Toast.LENGTH_SHORT).show();
+        }
     }
 }

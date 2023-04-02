@@ -16,6 +16,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.sotietkiem.R;
+import com.example.sotietkiem.SignInActivity;
 import com.example.sotietkiem.UserAdapter;
 import com.google.gson.Gson;
 
@@ -41,7 +42,7 @@ public class HomeFragment extends Fragment implements UserAdapter.UserCallback{
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_home, container, false);
         rvListC = v.findViewById(R.id.rcListHome);
-
+        User user= SignInActivity.loginUser;
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
         rvListC.setAdapter(userAdapter);
         rvListC.setLayoutManager(linearLayoutManager);
@@ -50,7 +51,7 @@ public class HomeFragment extends Fragment implements UserAdapter.UserCallback{
 //        btnXacNhan = v.findViewById(R.id.btnXacNhan);
         tvKetQua = v.findViewById(R.id.tvKetQua);
         tvTen = v.findViewById(R.id.tvTen );
-
+        tvTen.setText(user.getUserName());
 
 //        SharedPreferences shareget = getActivity().getSharedPreferences(Utils.SHARE_PREFERENCES_APP, Context.MODE_PRIVATE);
 //        String userPref = shareget.getString(Utils.KEY_USER,null);

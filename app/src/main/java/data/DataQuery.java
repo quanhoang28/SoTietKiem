@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.widget.Toast;
 
 import com.example.sotietkiem.fragment.HistoryFragment;
 
@@ -52,6 +53,26 @@ public class DataQuery {
         return lstUser;
     }
 
+    public User checkLogin(Context context,String name,String password)
+    {
+        User user;
+        DatabaseHandler helper = new DatabaseHandler(context);
+        SQLiteDatabase db = helper.getReadableDatabase();
+        String sql="SELECT * from "+helper.TABLE_NAME+" WHERE "+helper.COLUMN_USERNAME+" = "+"'"+name+"'"+" AND "+helper.COLUMN_PASSWORD+" = "+"'"+password+"'";
+        Cursor cs=db.rawQuery(sql,null);
+        if (cs.moveToFirst())
+        {
+            int id = cs.getInt(0);
+            String username = cs.getString(1);
+            String pass = cs.getString(2);
+            user= new User(id,username,pass);
+        }
+        else {
+            Toast.makeText(context, "Sai thong tin", Toast.LENGTH_SHORT).show();
+            user= null;
+        }
+       return user;
+    }
     public static User GetUser(Context context,String username)
     {
         DatabaseHandler helper = new DatabaseHandler(context);
