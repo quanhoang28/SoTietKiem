@@ -9,5 +9,4 @@
         android:icon="@drawable/baseline_account_circle_24_black" app:showAsAction="always"/>
     <item android:title="Setting" android:id="@+id/mnSetting"
         android:icon="@drawable/baseline_settings_24" app:showAsAction="always" />
-
 </menu>

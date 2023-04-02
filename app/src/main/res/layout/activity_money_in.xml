@@ -1,21 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".fragment.HistoryFragment">
+    tools:context="InOut.MoneyInActivity">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:text="@string/mmm"
         android:textAlignment="center"
-        android:text="Lịch sử"
         android:textSize="32sp"/>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rcList"
+        android:id="@+id/rcView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        />
+        android:layout_height="wrap_content" />
+
+
+
 </LinearLayout>

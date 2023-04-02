@@ -13,15 +13,19 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 import data.User;
+import data.Utils;
 
 public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder> {
     ArrayList<User> lstUser;
 
     Context context;
     UserCallback userCallback;
-    public UserAdapter(ArrayList<User> lstUser,UserCallback userCallback) {
+
+    public UserAdapter(ArrayList<User> lstUser) {
         this.lstUser = lstUser;
-        this.userCallback=userCallback;
+    }
+    public void setUserCallback(UserCallback userCallback) {
+        this.userCallback = userCallback;
     }
 
     @NonNull
@@ -32,35 +36,38 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
         View userView = inflater.inflate(R.layout.itemlayout, parent,false);
         UserViewHolder viewHolder= new UserViewHolder(userView);
         return viewHolder;
-
-
     }
 
     @Override
     public void onBindViewHolder(@NonNull UserViewHolder holder, int position) {
         User item= lstUser.get(position);
-
+        holder.imAvatar.setImageBitmap(Utils.convertToBitmapFromAssets(context,item.getAvatar()));
         holder.tvName.setText(item.getUserName());
-        holder.itemView.setOnClickListener(view -> userCallback.onItemClick(item.getId()));
+
+
+//        holder.itemView.setOnClickListener(view -> userCallback.onItemClick(item.getId()));
     }
 
     @Override
     public int getItemCount() {
+
         return lstUser.size();
     }
 
+
     class UserViewHolder extends RecyclerView.ViewHolder{
+
         ImageView imAvatar;
         TextView tvName;
 
-
         public UserViewHolder(@NonNull View itemView) {
             super(itemView);
+
             imAvatar = itemView.findViewById(R.id.ivAvatar);
             tvName=itemView.findViewById(R.id.tvName);
-
         }
     }
+
     public interface UserCallback{
         void onItemClick(String id);
     }

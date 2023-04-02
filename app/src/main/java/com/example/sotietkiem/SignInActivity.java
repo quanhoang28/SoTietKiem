@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -16,6 +17,11 @@ import android.widget.Toast;
 
 import com.google.gson.Gson;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import data.DataQuery;
+import data.DatabaseHandler;
 import data.User;
 import data.Utils;
 
@@ -25,6 +31,7 @@ public class SignInActivity extends AppCompatActivity {
 
     TextView tvTest;
 
+    ArrayList<User> lstUser;
     SharedPreferences.Editor editor;
     private final Gson gson =new Gson();
     SharedPreferences sharedPreferences;
@@ -39,8 +46,31 @@ public class SignInActivity extends AppCompatActivity {
 
        anhxa();
 
+       btDangNhap.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View view) {
 
-        btDangNhap.setOnClickListener(GetLogin());
+
+//               lstUser = DataQuery.getAll(SignInActivity.this);
+
+               DatabaseHandler helper = new DatabaseHandler(SignInActivity.this);
+               SQLiteDatabase db = helper.getReadableDatabase();
+               String username = edTaiKhoan.getText().toString().trim();
+               String password = edPassword.getText().toString().trim();
+
+               User dbUser = DataQuery.GetUser(SignInActivity.this,username);
+
+               if(username == dbUser.getUserName())
+               {
+                   Toast.makeText(SignInActivity.this, "Username đúng", Toast.LENGTH_SHORT).show();
+               }
+               else
+               {
+                   Toast.makeText(SignInActivity.this, "không đúng", Toast.LENGTH_SHORT).show();
+               }
+
+           }
+       });
 
         btDangKy.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -49,44 +79,6 @@ public class SignInActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
-    }
-
-    @NonNull
-    private View.OnClickListener GetLogin() {
-        return new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String userPref = sharedPreferences.getString(Utils.KEY_USER,null);
-                User user = gson.fromJson(userPref,User.class);
-                // user = null có nghĩa là chưa có user đăng ký
-                if ( user == null) {
-                    return;
-                }
-                // ktra user name, password có trùng với đối  tương user trong share preferences không
-                boolean isValid = edTaiKhoan.getText().toString().trim().equals(user.getUserName()) && edPassword.getText().toString().trim().equals(user.getPassword());
-                // nếu kquả trùng với user đã đăng ký thì start main activity
-                if (isValid) {
-                    Intent intent = new Intent(SignInActivity.this ,MainActivity.class);
-                    // khởi tạo bundle để truyền user data cho MainActivity
-                    Bundle bundle = new Bundle();
-                    // vì user là object nên dùng putSerializable
-                    bundle.putSerializable(Utils.KEY_USER_PROFILE, user);
-                    // hoặc có thể dùng putString, nếu chỉ dùng username.
-                    // bundle.putString,....
-
-                    // put bundle cho intent
-                    intent.putExtras(bundle);
-                    startActivity(intent);
-                    Toast.makeText(SignInActivity.this, "Đăng nhập thành công", Toast.LENGTH_LONG).show();
-                    // sau khi start main activity thì finish login activity
-                    startActivity(intent);
-                }
-                else
-                {
-                    Toast.makeText(SignInActivity.this, "Đăng nhập không thành công", Toast.LENGTH_LONG).show();
-                }
-            }
-        };
     }
 
     void anhxa(){

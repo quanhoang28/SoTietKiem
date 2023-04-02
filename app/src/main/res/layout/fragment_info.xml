@@ -15,10 +15,13 @@
                 android:id="@+id/tvUserNameInfo"
                 android:text="Tên tài khoản"
                 android:textSize="24sp"/>
-            
-        </TableRow>
-        <TableRow>
 
+        </TableRow>
+
+        <TableRow>
+            <TextView>
+
+            </TextView>
         </TableRow>
 
     </TableLayout>

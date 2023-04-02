@@ -109,35 +109,11 @@
 
         </LinearLayout>
 
-
-        <EditText
-
-            android:id="@+id/edSotien"
-            android:background="@drawable/edittextstyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Nhập số tiền"
-            android:textColorHint="@color/cardview_dark_background"
-            android:inputType="number"
-            android:textSize="30sp"
-            android:layout_marginTop="2sp"
-            android:paddingLeft="20dp"
-            android:paddingBottom="5dp"
-            android:paddingTop="5dp"
-            android:textColor="@color/black"
-            android:layout_margin="8dp">
-        </EditText>
-
-
-
-        <Button
-            android:id="@+id/btnXacNhan"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="xác nhận"
-            android:inputType="number"
-            android:textSize="24sp"
-            android:layout_marginLeft="8dp"></Button>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcListHome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </androidx.recyclerview.widget.RecyclerView>
 
 
 

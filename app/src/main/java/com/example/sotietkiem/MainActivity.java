@@ -103,9 +103,13 @@ import com.example.sotietkiem.fragment.SettingFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity {
 
     BottomNavigationView mnBottom;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -120,21 +124,16 @@ public class MainActivity extends AppCompatActivity {
 
         //Load len fragment
 
-        mnBottom.setOnItemSelectedListener(getListener());
+
 
         loadFragment(new HomeFragment());
+        mnBottom.setOnItemSelectedListener(getListener());
+
 
     }
 
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if(item.getItemId() == android.R.id.home)
-        {
-            finish();
-            return true;
-        }
-        return true;
-    }
+//    boolean IsClickReturn;
+
 
     @NonNull
     private NavigationBarView.OnItemSelectedListener getListener() {
@@ -174,7 +173,6 @@ public class MainActivity extends AppCompatActivity {
         fmTran.addToBackStack(null);
         fmTran.commit();
     }
-
 
 
 
